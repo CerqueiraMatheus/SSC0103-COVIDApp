@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">covidapp</string>
+
+    <string name="noticias_title">Notícias</string>
+    <string name="dados_title">Últimos dados</string>
+    <string name="estimativa_title">Quando vou vacinar?</string>
+    <string name="sobre_title">Sobre</string>
+    <string name="bottom_noticias">Notícias</string>
+    <string name="bottom_dados">Dados</string>
+    <string name="bottom_estimativa">Estimativa</string>
+    <string name="bottom_sobre">Sobre</string>
+
 </resources>

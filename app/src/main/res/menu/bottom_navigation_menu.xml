@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/page_1"
+        android:enabled="true"
+        android:icon="@drawable/round_bookmarks_24"
+        android:title="@string/bottom_noticias" />
+    <item
+        android:id="@+id/page_2"
+        android:enabled="true"
+        android:icon="@drawable/round_data_usage_24"
+        android:title="@string/bottom_dados" />
+    <item
+        android:id="@+id/page_3"
+        android:enabled="true"
+        android:icon="@drawable/round_date_range_24"
+        android:title="@string/bottom_estimativa" />
+    <item
+        android:id="@+id/page_4"
+        android:enabled="true"
+        android:icon="@drawable/round_info_24"
+        android:title="@string/bottom_sobre" />
+</menu>
