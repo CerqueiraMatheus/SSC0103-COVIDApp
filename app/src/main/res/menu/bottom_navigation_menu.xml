@@ -1,21 +1,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/page_1"
+        android:id="@+id/navigation_noticias"
         android:enabled="true"
         android:icon="@drawable/round_bookmarks_24"
         android:title="@string/bottom_noticias" />
     <item
-        android:id="@+id/page_2"
+        android:id="@+id/navigation_dados"
         android:enabled="true"
         android:icon="@drawable/round_data_usage_24"
         android:title="@string/bottom_dados" />
     <item
-        android:id="@+id/page_3"
+        android:id="@+id/navigation_estimativa"
         android:enabled="true"
         android:icon="@drawable/round_date_range_24"
         android:title="@string/bottom_estimativa" />
     <item
-        android:id="@+id/page_4"
+        android:id="@+id/navigation_sobre"
         android:enabled="true"
         android:icon="@drawable/round_info_24"
         android:title="@string/bottom_sobre" />

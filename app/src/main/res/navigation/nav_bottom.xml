@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_noticias">
+
+    <fragment
+        android:id="@+id/navigation_noticias"
+        android:name="com.poo.covidapp.Noticias.NoticiasFragment"
+        android:label="Últimas notícias"
+        tools:layout="@layout/fragment_noticias" />
+
+    <fragment
+        android:id="@+id/navigation_dados"
+        android:name="com.poo.covidapp.Dados.DadosFragment"
+        android:label="Últimos dados"
+        tools:layout="@layout/fragment_dados" />
+
+    <fragment
+        android:id="@+id/navigation_estimativa"
+        android:name="com.poo.covidapp.Estimativa.EstimativaFragment"
+        android:label="Quando vou me vacinar?"
+        tools:layout="@layout/fragment_estimativa" />
+
+    <fragment
+        android:id="@+id/navigation_sobre"
+        android:name="com.poo.covidapp.Sobre.SobreFragment"
+        android:label="Sobre"
+        tools:layout="@layout/fragment_sobre" />
+</navigation>
