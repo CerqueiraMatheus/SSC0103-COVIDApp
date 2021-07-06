@@ -1,11 +1,14 @@
 package com.poo.covidapp.Noticias;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,14 +36,10 @@ public class NoticiasFragment extends Fragment implements NoticiasContract.View 
         //        return inflater.inflate(R.layout.fragment_noticias, container, false);
 
         binding = FragmentNoticiasBinding.inflate(inflater, container, false);
-        return binding.getRoot();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
         new NoticiasPresenter(this);
         presenter.start();
+        System.out.println("Executou");
+        return binding.getRoot();
     }
 
     @Override
@@ -49,8 +48,8 @@ public class NoticiasFragment extends Fragment implements NoticiasContract.View 
     }
 
     @Override
-    public void startNoticia() {
-        System.out.println("Deveria startar a notícia!");
+    public void startNoticia(Intent intent) {
+        startActivity(intent);
     }
 
     @Override

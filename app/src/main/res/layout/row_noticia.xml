@@ -38,7 +38,9 @@
                     android:layout_alignParentTop="true"
                     android:layout_margin="4dp"
                     android:text="b"
-                    android:textSize="16sp" />
+                    android:textColor="@color/primaryDarkColor"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/row_noticia_corpo"
@@ -46,6 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/row_noticia_titulo"
                     android:layout_margin="4dp"
+                    android:justificationMode="inter_word"
                     android:text="a"
                     android:textSize="12sp" />
 
@@ -54,10 +57,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/row_noticia_corpo"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_margin="4dp"
                     android:text="c"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
             </RelativeLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
