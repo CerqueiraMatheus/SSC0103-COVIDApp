@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.poo.covidapp.MainActivity;
 import com.poo.covidapp.databinding.FragmentNoticiasBinding;
 
 public class NoticiasFragment extends Fragment implements NoticiasContract.View {

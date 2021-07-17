@@ -34,7 +34,7 @@ public class ChartsFragment extends Fragment implements ChartsContract.View, Vie
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        new ChartsPresenter(this);
+        new ChartsPresenter(this, getContext());
         presenter.start();
     }
 
