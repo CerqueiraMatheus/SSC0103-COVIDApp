@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Request {
+public class Chart {
     @SerializedName("results")
     @Expose
     public State[] states;
@@ -17,24 +17,33 @@ class State {
     private String initials;
     @SerializedName("confirmed")
     @Expose
-    private int confirmedCases;
+    private int cases;
     @SerializedName("confirmed_per_100k_inhabitants")
     @Expose
-    private int confirmedCasesPer1000;
+    private double casesPer100k;
     @SerializedName("deaths")
     @Expose
     private int deaths;
+
+    @Override
+    public String toString() {
+        return String.format("Initials: %s\nCases: %d\nCasesPer100k: %f\nDeaths: %d\n",
+                             initials, cases, casesPer100k, deaths);
+    }
+
+
+    /* Getters and Setters */
 
     public String getInitials() {
         return initials;
     }
 
-    public int getConfirmedCases() {
-        return confirmedCases;
+    public int getCases() {
+        return cases;
     }
 
-    public int getConfirmedCasesPer1000() {
-        return confirmedCasesPer1000;
+    public double getCasesPer100k() {
+        return casesPer100k;
     }
 
     public int getDeaths() {
