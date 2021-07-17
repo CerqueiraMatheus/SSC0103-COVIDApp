@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_dados"
-        android:name="com.poo.covidapp.Dados.DadosFragment"
+        android:name="com.poo.covidapp.Charts.ChartsFragment"
         android:label="Últimos dados"
-        tools:layout="@layout/fragment_dados" />
+        tools:layout="@layout/fragment_charts" />
 
     <fragment
         android:id="@+id/navigation_estimativa"
