@@ -7,6 +7,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.poo.covidapp.R;
 import com.poo.covidapp.Util.Modelo.Chart;
 
@@ -17,6 +18,7 @@ import java.util.Map;
 public class ChartsPresenter implements ChartsContract.Presenter {
     private ChartsContract.View view;
     private Context context;
+    private Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 
     /* Create */
 
@@ -52,7 +54,7 @@ public class ChartsPresenter implements ChartsContract.Presenter {
         String url = "https://api.brasil.io/v1/dataset/covid19/caso/data?is_last=True&place_type=state";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
-            Chart chart = new Gson().fromJson(response.toString(), Chart.class);
+            Chart chart = gson.fromJson(response.toString(), Chart.class);
             chart.setType(type);
             Arrays.sort(chart.getStates());
             view.startChartsActivity(chart.getInitials(), chart.getValues());
@@ -71,4 +73,3 @@ public class ChartsPresenter implements ChartsContract.Presenter {
         queue.add(request);
     }
 }
-
