@@ -43,8 +43,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.3.5'
     implementation 'androidx.navigation:navigation-ui:2.3.5'
 
-    // Retrofit
-    api 'com.squareup.retrofit2:retrofit:2.6.1'
+    // GSon
     api 'com.squareup.retrofit2:converter-gson:2.4.0'
 
     // Volley
@@ -52,4 +51,7 @@ dependencies {
 
     // MP Android Charts
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    // JSoup
+    implementation 'org.jsoup:jsoup:1.14.1'
 }
