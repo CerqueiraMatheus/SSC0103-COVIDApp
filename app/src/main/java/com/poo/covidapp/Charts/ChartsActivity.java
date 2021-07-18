@@ -1,8 +1,8 @@
 package com.poo.covidapp.Charts;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.poo.covidapp.R;

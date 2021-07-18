@@ -1,4 +1,4 @@
-package com.poo.covidapp.Sobre;
+package com.poo.covidapp.About;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,21 +9,12 @@ import androidx.fragment.app.Fragment;
 
 import com.poo.covidapp.R;
 
-public class SobreFragment extends Fragment {
-
-    public SobreFragment() {
-        // Required empty public constructor
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+public class AboutFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sobre, container, false);
+        return inflater.inflate(R.layout.fragment_about, container, false);
     }
 }

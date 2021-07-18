@@ -2,7 +2,7 @@ package com.poo.covidapp.Charts;
 
 import com.poo.covidapp.Util.Base.BasePresenter;
 import com.poo.covidapp.Util.Base.BaseView;
-import com.poo.covidapp.Util.Modelo.Chart;
+import com.poo.covidapp.Util.Models.Chart;
 
 import java.util.ArrayList;
 

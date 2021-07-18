@@ -1,4 +1,4 @@
-package com.poo.covidapp.Util.Modelo;
+package com.poo.covidapp.Util.Models;
 
 import androidx.annotation.NonNull;
 

@@ -19,14 +19,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Bind and set the content
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-
+        // Configuration for bar workflow
         AppBarConfiguration conf = new AppBarConfiguration.Builder(
                 R.id.navigation_noticias, R.id.navigation_dados, R.id.navigation_estimativa, R.id.navigation_sobre).build();
 
+        // Linking the navigation controller and configurations
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_activity_main);
         NavController controller = navHostFragment.getNavController();
         NavigationUI.setupActionBarWithNavController(this, controller, conf);

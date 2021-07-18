@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_noticias"
-        android:name="com.poo.covidapp.Noticias.NoticiasFragment"
+        android:name="com.poo.covidapp.News.NewsFragment"
         android:label="Últimas notícias"
-        tools:layout="@layout/fragment_noticias" />
+        tools:layout="@layout/fragment_news" />
 
     <fragment
         android:id="@+id/navigation_dados"
@@ -19,13 +19,13 @@
 
     <fragment
         android:id="@+id/navigation_estimativa"
-        android:name="com.poo.covidapp.Estimativa.EstimativaFragment"
+        android:name="com.poo.covidapp.Estimation.EstimationFragment"
         android:label="Quando vou me vacinar?"
-        tools:layout="@layout/fragment_estimativa" />
+        tools:layout="@layout/fragment_estimation" />
 
     <fragment
         android:id="@+id/navigation_sobre"
-        android:name="com.poo.covidapp.Sobre.SobreFragment"
+        android:name="com.poo.covidapp.About.AboutFragment"
         android:label="Sobre"
-        tools:layout="@layout/fragment_sobre" />
+        tools:layout="@layout/fragment_about" />
 </navigation>

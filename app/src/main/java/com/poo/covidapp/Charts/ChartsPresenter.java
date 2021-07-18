@@ -9,16 +9,16 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.poo.covidapp.R;
-import com.poo.covidapp.Util.Modelo.Chart;
+import com.poo.covidapp.Util.Models.Chart;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ChartsPresenter implements ChartsContract.Presenter {
-    private ChartsContract.View view;
-    private Context context;
-    private Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+    private final ChartsContract.View view;
+    private final Context context;
+    private final Gson gson;
 
     /* Create */
 
@@ -26,6 +26,7 @@ public class ChartsPresenter implements ChartsContract.Presenter {
         this.view = view;
         this.context = context;
         view.setPresenter(this);
+        gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
     }
 
     @Override

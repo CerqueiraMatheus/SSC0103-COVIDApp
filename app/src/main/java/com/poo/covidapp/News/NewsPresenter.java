@@ -1,38 +1,40 @@
-package com.poo.covidapp.Noticias;
+package com.poo.covidapp.News;
 
 import android.content.Intent;
 import android.net.Uri;
 
-import com.poo.covidapp.Util.Modelo.Noticia;
+import com.poo.covidapp.Util.Models.News;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoticiasPresenter implements NoticiasContract.Presenter {
+public class NewsPresenter implements NewsContract.Presenter {
 
-    NoticiasContract.View view;
-    List<Noticia> noticiaList;
+    private final NewsContract.View view;
+    private List<News> newsList;
 
-    public NoticiasPresenter(NoticiasContract.View view) {
+    // Presenter constructor
+    public NewsPresenter(NewsContract.View view) {
         this.view = view;
         view.setPresenter(this);
     }
 
     @Override
     public void start() {
-        noticiaList = new ArrayList<>();
+        newsList = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
-            noticiaList.add(new Noticia(
+            newsList.add(new News(
                     "Uma grande notícia",
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in orci porta, accumsan lacus eu, semper risus. Aenean fringilla orci in turpis sollicitudin, eu suscipit felis tincidunt. Donec eleifend nulla nec pulvinar posuere. Nulla faucibus dui nisi, eget rhoncus odio tempor ut. In auctor dolor id leo egestas mattis. Aliquam est quam, tristique at ipsum non, pretium facilisis libero. Curabitur consequat scelerisque tempus. ",
                     "CartaCapital",
                     "http://www.google.com"));
         }
-        view.setAdapter(new NoticiasAdapter(noticiaList, view));
+        view.setAdapter(new NewsAdapter(newsList, view));
     }
 
     @Override
+    // Handle the click
     public void onItemClick(int position) {
-        view.startNoticia(new Intent(Intent.ACTION_VIEW, Uri.parse(noticiaList.get(position).getUrl())));
+        view.startNews(new Intent(Intent.ACTION_VIEW, Uri.parse(newsList.get(position).getUrl())));
     }
 }

@@ -2,16 +2,14 @@ package com.poo.covidapp.Charts;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.github.mikephil.charting.data.BarEntry;
+import androidx.fragment.app.Fragment;
+
 import com.poo.covidapp.R;
-import com.poo.covidapp.Util.Modelo.Chart;
+import com.poo.covidapp.Util.Models.Chart;
 import com.poo.covidapp.databinding.FragmentChartsBinding;
 
 import java.util.ArrayList;
@@ -22,10 +20,6 @@ public class ChartsFragment extends Fragment implements ChartsContract.View, Vie
 
 
     /* Create */
-
-    public ChartsFragment() {
-        // Required empty public constructor
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

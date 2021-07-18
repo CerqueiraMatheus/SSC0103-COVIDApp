@@ -1,4 +1,4 @@
-package com.poo.covidapp.Noticias;
+package com.poo.covidapp.News;
 
 import android.content.Intent;
 import android.widget.AdapterView;
@@ -6,12 +6,12 @@ import android.widget.AdapterView;
 import com.poo.covidapp.Util.Base.BasePresenter;
 import com.poo.covidapp.Util.Base.BaseView;
 
-public interface NoticiasContract {
+public interface NewsContract {
 
-    interface View extends BaseView<NoticiasPresenter>, AdapterView.OnItemClickListener {
-        void startNoticia(Intent intent);
+    interface View extends BaseView<NewsPresenter>, AdapterView.OnItemClickListener {
+        void startNews(Intent intent);
 
-        void setAdapter(NoticiasAdapter adapter);
+        void setAdapter(NewsAdapter adapter);
     }
 
     interface Presenter extends BasePresenter {

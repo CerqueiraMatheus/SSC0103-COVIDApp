@@ -1,4 +1,4 @@
-package com.poo.covidapp.Noticias;
+package com.poo.covidapp.News;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,35 +10,37 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.poo.covidapp.Util.Modelo.Noticia;
+import com.poo.covidapp.Util.Models.News;
 import com.poo.covidapp.R;
 
 import java.util.List;
 
-public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.CustomViewHolder> {
+public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.CustomViewHolder> {
 
-    private List<Noticia> listaNoticia;
-    private AdapterView.OnItemClickListener onItemClickListener;
+    private final List<News> newsList;
+    private final AdapterView.OnItemClickListener onItemClickListener;
 
-    NoticiasAdapter(List<Noticia> dataList, AdapterView.OnItemClickListener listener) {
-        this.listaNoticia = dataList;
+    NewsAdapter(List<News> dataList, AdapterView.OnItemClickListener listener) {
+        this.newsList = dataList;
         this.onItemClickListener = listener;
     }
 
+    // Custom ViewHolder for each element
     class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         final View mView;
-        TextView titulo;
-        TextView corpo;
-        TextView publicadaPor;
+        TextView title;
+        TextView body;
+        TextView published;
         CardView cardView;
 
+        // Linking Views and OnClickListeners
         CustomViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
-            titulo = mView.findViewById(R.id.row_noticia_titulo);
-            corpo = mView.findViewById(R.id.row_noticia_corpo);
-            publicadaPor = mView.findViewById(R.id.row_noticia_publicadopor);
+            title = mView.findViewById(R.id.row_noticia_titulo);
+            body = mView.findViewById(R.id.row_noticia_corpo);
+            published = mView.findViewById(R.id.row_noticia_publicadopor);
             cardView = mView.findViewById(R.id.row_noticia_card);
             itemView.setOnClickListener(this);
             cardView.setOnClickListener(this);
@@ -52,21 +54,23 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Custom
 
     @NonNull
     @Override
+    // Inflate the element inside the View
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.row_noticia, parent, false);
+        View view = layoutInflater.inflate(R.layout.row_news, parent, false);
         return new CustomViewHolder(view);
     }
 
     @Override
+    // Populate the element
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
-        holder.titulo.setText(listaNoticia.get(position).getTitulo());
-        holder.corpo.setText(listaNoticia.get(position).getResumo());
-        holder.publicadaPor.setText(listaNoticia.get(position).getPublicadaPor());
+        holder.title.setText(newsList.get(position).getTitle());
+        holder.body.setText(newsList.get(position).getBody());
+        holder.published.setText(newsList.get(position).getPublished());
     }
 
     @Override
     public int getItemCount() {
-        return listaNoticia.size();
+        return newsList.size();
     }
 }
