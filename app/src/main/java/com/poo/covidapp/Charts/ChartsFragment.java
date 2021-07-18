@@ -9,8 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.mikephil.charting.data.BarEntry;
 import com.poo.covidapp.R;
+import com.poo.covidapp.Util.Modelo.Chart;
 import com.poo.covidapp.databinding.FragmentChartsBinding;
+
+import java.util.ArrayList;
 
 public class ChartsFragment extends Fragment implements ChartsContract.View, View.OnClickListener {
     private ChartsPresenter presenter;
@@ -45,22 +49,22 @@ public class ChartsFragment extends Fragment implements ChartsContract.View, Vie
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonCases:
-                System.out.println("Click in Cases!");
-                presenter.requestChart();
+                presenter.requestChart(Chart.Types.CASES);
                 break;
             case R.id.buttonCasesPer100k:
-                System.out.println("Click in Cases per 100k!");
+                presenter.requestChart(Chart.Types.CASES_PER_100K);
                 break;
             case R.id.buttonDeaths:
-                System.out.println("Click in Deaths!");
+                presenter.requestChart(Chart.Types.DEATHS);
                 break;
         }
     }
 
     @Override
-    public void startChart() {
-        Intent intent = new Intent(getActivity(), ChartActivity.class);
-        intent.putExtra("", "");
+    public void startChartsActivity(ArrayList<String> initials, ArrayList<Float> values) {
+        Intent intent = new Intent(getActivity(), ChartsActivity.class);
+        intent.putExtra("initials", initials);
+        intent.putExtra("values", values);
         startActivity(intent);
     }
 
