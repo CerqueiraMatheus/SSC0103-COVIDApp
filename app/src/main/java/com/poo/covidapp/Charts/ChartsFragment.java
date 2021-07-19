@@ -14,7 +14,7 @@ import com.poo.covidapp.databinding.FragmentChartsBinding;
 
 import java.util.ArrayList;
 
-public class ChartsFragment extends Fragment implements ChartsContract.View, View.OnClickListener {
+public class ChartsFragment extends Fragment implements ChartsContract.View {
     private ChartsPresenter presenter;
     private FragmentChartsBinding binding;
 
@@ -36,23 +36,7 @@ public class ChartsFragment extends Fragment implements ChartsContract.View, Vie
         presenter.start();
     }
 
-
     /*  */
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.buttonCases:
-                presenter.requestChart(Chart.Types.CASES);
-                break;
-            case R.id.buttonCasesPer100k:
-                presenter.requestChart(Chart.Types.CASES_PER_100K);
-                break;
-            case R.id.buttonDeaths:
-                presenter.requestChart(Chart.Types.DEATHS);
-                break;
-        }
-    }
 
     @Override
     public void startChartsActivity(ArrayList<String> initials, ArrayList<Float> values) {
@@ -74,15 +58,30 @@ public class ChartsFragment extends Fragment implements ChartsContract.View, Vie
     public void setButtons(String[] titles, String[] descriptions) {
         binding.buttonCases.rowOptionTitle.setText(titles[0]);
         binding.buttonCases.rowOptionDescription.setText(descriptions[0]);
-        binding.buttonCases.rowOption.setOnClickListener(this);
+        binding.buttonCases.rowOption.setOnClickListener(this::onCasesClick);
 
         binding.buttonCasesPer100k.rowOptionTitle.setText(titles[1]);
         binding.buttonCasesPer100k.rowOptionDescription.setText(descriptions[1]);
-        binding.buttonCasesPer100k.rowOption.setOnClickListener(this);
+        binding.buttonCasesPer100k.rowOption.setOnClickListener(this::onCasesPer100kClick);
 
         binding.buttonDeaths.rowOptionTitle.setText(titles[2]);
         binding.buttonDeaths.rowOptionDescription.setText(descriptions[2]);
-        binding.buttonDeaths.rowOption.setOnClickListener(this);
+        binding.buttonDeaths.rowOption.setOnClickListener(this::onDeathsClick);
+    }
+
+    @Override
+    public void onCasesClick(View view) {
+        presenter.requestChart(Chart.Types.CASES);
+    }
+
+    @Override
+    public void onCasesPer100kClick(View view) {
+        presenter.requestChart(Chart.Types.CASES_PER_100K);
+    }
+
+    @Override
+    public void onDeathsClick(View view) {
+        presenter.requestChart(Chart.Types.DEATHS);
     }
 
 
