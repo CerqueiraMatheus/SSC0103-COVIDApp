@@ -23,16 +23,20 @@ import java.util.Objects;
 public class EstimationPresenter implements EstimationContract.Presenter {
     private final Context context;
     private final EstimationContract.View view;
+
+    // States initials
     private final List<String> statesInitials = Arrays.asList("AC", "AL", "AP", "AM", "BA", "CE",
             "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN",
             "RS", "RO", "RR", "SC", "SP", "SE", "TO");
 
+    // States names
     private final List<String> statesNames = Arrays.asList("Acre", "Alagoas", "Amapá", "Amazonas",
             "Bahia", "Ceará", "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão",
             "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná",
             "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul",
             "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins");
 
+    // States health sites
     private final List<String> statesHealthSites = Arrays.asList("http://saude.acre.gov.br/",
             "https://www.saude.al.gov.br/", "https://saude.portal.ap.gov.br/",
             "http://www.saude.am.gov.br/", "http://www.saude.ba.gov.br/", "http://www.saude.ce.gov.br/",
@@ -58,10 +62,12 @@ public class EstimationPresenter implements EstimationContract.Presenter {
     }
 
     @Override
+    // Execute the submit
     public void onSubmit(int age, String state, boolean isPNI) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = "https://quandovouservacinado.com/";
 
+        // POST request to get result
         StringRequest request = new StringRequest(Request.Method.POST, url,
                 // Handle response
                 response -> view.showResult(

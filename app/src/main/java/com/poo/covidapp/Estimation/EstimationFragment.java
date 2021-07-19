@@ -46,6 +46,7 @@ public class EstimationFragment extends Fragment implements EstimationContract.V
 
     @Override
     public void showResult(String title, String body, Intent intent) {
+        // Display the result inside an Alert Dialog
         new MaterialAlertDialogBuilder(requireContext())
                 .setTitle(title)
                 .setMessage(body)
@@ -61,34 +62,43 @@ public class EstimationFragment extends Fragment implements EstimationContract.V
 
     @Override
     public void populateView(List<String> statesNames) {
+        // Set the state dropdown menu adapter with the states names
         binding.estimationState.setAdapter(
                 new ArrayAdapter<>(requireContext(), R.layout.row_state, statesNames)
         );
+
+        // Avoid soft keyboard appearing when focusing the dropdown menu
         binding.estimationState.setOnFocusChangeListener((v, hasFocus) -> {
             InputMethodManager imm = (InputMethodManager)
                     requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(requireView().getWindowToken(), 0);
         });
+
+        // Link the button onClick with custom method
         binding.estimationSubmit.setOnClickListener(this::onSubmitClick);
     }
 
     @Override
     public void onSubmitClick(View view) {
+        // Check if age is valid
         String age = Objects.requireNonNull(binding.estimationAge.getText()).toString();
         if (age.equals("") || Integer.parseInt(age) > 150) {
             binding.estimationAgeLayout.setError("Idade meio estranha...");
             return;
         }
 
+        // Check if state is valid
         String state = Objects.requireNonNull(binding.estimationState.getText()).toString();
         if (state.equals("")) {
             binding.estimationStateLayout.setError("Selecione um estado!");
             return;
         }
 
+        // Clean layout errors
         binding.estimationAgeLayout.setError("");
         binding.estimationStateLayout.setError("");
 
+        // Submit
         presenter.onSubmit(Integer.parseInt(age), state, binding.estimationPni.isChecked());
     }
 }
