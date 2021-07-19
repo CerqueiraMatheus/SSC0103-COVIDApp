@@ -7,6 +7,7 @@
         <item name="colorAccent">@color/primaryLightColor</item>
         <item name="android:textColorPrimary">@color/primaryDarkColor</item>
 
+        <item name="fontFamily">@font/text</item>
         <item name="android:textViewStyle">@style/TextView</item>
         <item name="android:actionBarStyle">@style/ActionBar</item>
 
