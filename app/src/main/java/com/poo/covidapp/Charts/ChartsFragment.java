@@ -72,17 +72,17 @@ public class ChartsFragment extends Fragment implements ChartsContract.View, Vie
 
     @Override
     public void setButtons(String[] titles, String[] descriptions) {
-        binding.buttonCases.setText(titles[0]);
-        // binding.buttonCases.setDescription(descriptions[0]);
-        binding.buttonCases.setOnClickListener(this);
+        binding.buttonCases.rowOptionTitle.setText(titles[0]);
+        binding.buttonCases.rowOptionDescription.setText(descriptions[0]);
+        binding.buttonCases.rowOption.setOnClickListener(this);
 
-        binding.buttonCasesPer100k.setText(titles[1]);
-        // binding.buttonCasesPer100k.setDescription(descriptions[1]);
-        binding.buttonCasesPer100k.setOnClickListener(this);
+        binding.buttonCasesPer100k.rowOptionTitle.setText(titles[1]);
+        binding.buttonCasesPer100k.rowOptionDescription.setText(descriptions[1]);
+        binding.buttonCasesPer100k.rowOption.setOnClickListener(this);
 
-        binding.buttonDeaths.setText(titles[2]);
-        // binding.buttonDeaths.setDescription(descriptions[2]);
-        binding.buttonDeaths.setOnClickListener(this);
+        binding.buttonDeaths.rowOptionTitle.setText(titles[2]);
+        binding.buttonDeaths.rowOptionDescription.setText(descriptions[2]);
+        binding.buttonDeaths.rowOption.setOnClickListener(this);
     }
 
 

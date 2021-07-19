@@ -1,37 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="54dp"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
     tools:context=".Charts.ChartsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <Button
+    <include
         android:id="@+id/buttonCases"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="69dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        layout="@layout/row_option" />
 
-    <Button
+    <include
         android:id="@+id/buttonCasesPer100k"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        app:layout_constraintStart_toStartOf="@+id/buttonCases"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCases" />
+        layout="@layout/row_option" />
 
-    <Button
+    <include
         android:id="@+id/buttonDeaths"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        app:layout_constraintStart_toStartOf="@+id/buttonCasesPer100k"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCasesPer100k" />
+        layout="@layout/row_option" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
