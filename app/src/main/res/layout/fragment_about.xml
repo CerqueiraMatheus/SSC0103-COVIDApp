@@ -1,14 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout9"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".About.AboutFragment">
+    android:layout_marginBottom="54dp"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    tools:context=".Charts.ChartsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Sobre" />
+    <include
+        android:id="@+id/about_dictionary"
+        layout="@layout/row_option" />
 
-</FrameLayout>
+    <include
+        android:id="@+id/about_project"
+        layout="@layout/row_option" />
+
+    <include
+        android:id="@+id/about_authors"
+        layout="@layout/row_option" />
+
+</LinearLayout>
