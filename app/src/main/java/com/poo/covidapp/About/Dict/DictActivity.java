@@ -1,10 +1,12 @@
 package com.poo.covidapp.About.Dict;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.renderscript.ScriptGroup;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -37,6 +39,9 @@ public class DictActivity extends AppCompatActivity implements DictContract.View
         super.onResume();
         new DictPresenter(this);
         presenter.start();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Dicionário Pandemia");
     }
 
     @Override
@@ -85,5 +90,11 @@ public class DictActivity extends AppCompatActivity implements DictContract.View
     public void setWord(String title, String body) {
         binding.dictTitle.setText(title);
         binding.dictBody.setText(body);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) onBackPressed();
+        return super.onOptionsItemSelected(item);
     }
 }
