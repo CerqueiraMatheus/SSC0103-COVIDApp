@@ -10,10 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.poo.covidapp.Estimation.EstimationPresenter;
-import com.poo.covidapp.R;
 import com.poo.covidapp.databinding.FragmentAboutBinding;
-import com.poo.covidapp.databinding.FragmentEstimationBinding;
 
 public class AboutFragment extends Fragment implements AboutContract.View {
 
