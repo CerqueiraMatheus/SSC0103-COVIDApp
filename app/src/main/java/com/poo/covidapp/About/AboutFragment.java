@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.poo.covidapp.About.Dict.DictActivity;
 import com.poo.covidapp.databinding.FragmentAboutBinding;
 
 public class AboutFragment extends Fragment implements AboutContract.View {
@@ -50,7 +51,8 @@ public class AboutFragment extends Fragment implements AboutContract.View {
 
     @Override
     public void onDictClick(View view) {
-
+        Intent intent = new Intent(requireActivity(), DictActivity.class);
+        startActivity(intent);
     }
 
     @Override

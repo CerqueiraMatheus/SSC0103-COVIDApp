@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Covidapp">
+        <activity android:name=".About.Dict.DictActivity"></activity>
         <activity
             android:name=".About.AboutStaticActivity"
             android:exported="true" />

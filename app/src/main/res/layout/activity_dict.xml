@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/estimation_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="40dp"
+    tools:context=".Estimation.EstimationFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dict_search_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Pesquise um termo"
+        app:errorEnabled="true">
+
+        <AutoCompleteTextView
+            android:id="@+id/dict_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/dict_title"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:text="title" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/dict_body"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:text="body" />
+
+</LinearLayout>
