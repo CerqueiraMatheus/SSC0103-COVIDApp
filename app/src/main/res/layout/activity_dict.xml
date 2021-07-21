@@ -30,14 +30,12 @@
         android:id="@+id/dict_title"
         android:layout_width="match_parent"
 
-        android:layout_height="wrap_content"
-        android:text="title" />
+        android:layout_height="wrap_content" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/dict_body"
         android:layout_width="match_parent"
 
-        android:layout_height="wrap_content"
-        android:text="body" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

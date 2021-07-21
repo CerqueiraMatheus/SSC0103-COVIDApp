@@ -14,7 +14,6 @@ public interface DictContract {
     }
 
     interface Presenter extends BasePresenter {
-        void onSelectWord(int position);
-        void clearWord();
+        void onSelectWord(String title);
     }
 }

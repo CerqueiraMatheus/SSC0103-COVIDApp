@@ -37,7 +37,7 @@ public class DictActivity extends AppCompatActivity implements DictContract.View
     @Override
     protected void onResume() {
         super.onResume();
-        new DictPresenter(this);
+        new DictPresenter(this, getApplicationContext());
         presenter.start();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -63,26 +63,9 @@ public class DictActivity extends AppCompatActivity implements DictContract.View
             imm.hideSoftInputFromWindow(binding.getRoot().getWindowToken(), 0);
         });
 
-        binding.dictSearch.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                presenter.onSelectWord(position);
-                System.out.println(position);
-            }
-        });
-
-        binding.dictSearch.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                // presenter.onSelectWord(((TextView) view).getText());
-                presenter.onSelectWord(position);
-                System.out.println(position);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                presenter.clearWord();
-            }
+        binding.dictSearch.setOnItemClickListener((parent, view, position, id) -> {
+            presenter.onSelectWord((String) ((TextView) view).getText());
+            System.out.println(position);
         });
     }
 
