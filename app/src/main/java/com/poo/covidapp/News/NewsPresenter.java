@@ -1,5 +1,6 @@
 package com.poo.covidapp.News;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
@@ -12,10 +13,12 @@ public class NewsPresenter implements NewsContract.Presenter {
 
     private final NewsContract.View view;
     private List<News> newsList;
+    private Context context;
 
     // Presenter constructor
-    public NewsPresenter(NewsContract.View view) {
+    public NewsPresenter(NewsContract.View view, Context context) {
         this.view = view;
+        this.context = context;
         view.setPresenter(this);
     }
 

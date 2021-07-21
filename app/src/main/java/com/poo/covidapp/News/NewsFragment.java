@@ -25,7 +25,7 @@ public class NewsFragment extends Fragment implements NewsContract.View {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentNewsBinding.inflate(inflater, container, false);
-        new NewsPresenter(this);
+        new NewsPresenter(this, requireContext());
         presenter.start();
         return binding.getRoot();
     }
