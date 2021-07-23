@@ -20,7 +20,7 @@ import com.poo.covidapp.databinding.ActivityDictBinding;
 
 import java.util.List;
 
-public class DictActivity extends AppCompatActivity implements DictContract.View{
+public class DictActivity extends AppCompatActivity implements DictContract.View {
 
     private ActivityDictBinding binding;
     private DictPresenter presenter;
@@ -41,7 +41,7 @@ public class DictActivity extends AppCompatActivity implements DictContract.View
         presenter.start();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Dicionário Pandemia");
+        getSupportActionBar().setTitle("Expressões da pandemia");
     }
 
     @Override
@@ -56,17 +56,16 @@ public class DictActivity extends AppCompatActivity implements DictContract.View
                 new ArrayAdapter<>(getBaseContext(), R.layout.row_state, strings)
         );
 
-        // Avoid soft keyboard appearing when focusing the dropdown menu
-        binding.dictSearch.setOnFocusChangeListener((v, hasFocus) -> {
+        binding.dictSearch.setOnItemClickListener((parent, view, position, id) -> {
             InputMethodManager imm = (InputMethodManager)
                     this.getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(binding.getRoot().getWindowToken(), 0);
+            presenter.onSelectWord((String) ((TextView) view).getText());
+            binding.dictSearch.setText("");
+            getWindow().getDecorView().clearFocus();
         });
 
-        binding.dictSearch.setOnItemClickListener((parent, view, position, id) -> {
-            presenter.onSelectWord((String) ((TextView) view).getText());
-            System.out.println(position);
-        });
+        binding.dictSearch.requestFocus();
     }
 
     @Override

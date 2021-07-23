@@ -16,26 +16,36 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:hint="Pesquise um termo"
+        app:endIconMode="none"
         app:errorEnabled="true">
 
         <AutoCompleteTextView
             android:id="@+id/dict_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="none" />
+            android:completionThreshold="1"
+            android:inputType="textAutoComplete" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/dict_title"
         android:layout_width="match_parent"
-
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:textAlignment="center"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/dict_body"
         android:layout_width="match_parent"
-
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:justificationMode="inter_word"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="14sp" />
 
 </LinearLayout>
