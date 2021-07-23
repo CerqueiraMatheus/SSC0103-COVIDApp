@@ -3,6 +3,7 @@ package com.poo.covidapp.News;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.text.format.DateFormat;
 
 import com.kwabenaberko.newsapilib.NewsApiClient;
 import com.kwabenaberko.newsapilib.models.Article;
@@ -13,8 +14,14 @@ import com.poo.covidapp.Util.Models.News;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class NewsPresenter implements NewsContract.Presenter {
 
@@ -47,11 +54,17 @@ public class NewsPresenter implements NewsContract.Presenter {
                 new NewsApiClient.ArticlesResponseCallback() {
                     @Override
                     public void onSuccess(ArticleResponse response) {
+                        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("'As' HH:mm 'do dia' dd/MM/yyyy");
+                        LocalDateTime date;
+
                         for (Article article : response.getArticles()) {
+                            String dt = article.getPublishedAt();
+                            date = LocalDateTime.parse(dt.substring(0, dt.length() - 1));
+
                             newsList.add(new News(
                                     StringUtils.substringBefore(article.getTitle(), " -"),
                                     article.getDescription(),
-                                    "Em + " + article.getPublishedAt() + ", por: " + article.getSource().getName(),
+                                    date.format(fmt) + ", por: " + article.getSource().getName(),
                                     article.getUrl(),
                                     article.getUrlToImage()
                             ));
