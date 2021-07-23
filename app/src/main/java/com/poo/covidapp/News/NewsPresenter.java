@@ -6,11 +6,13 @@ import android.net.Uri;
 
 import com.kwabenaberko.newsapilib.NewsApiClient;
 import com.kwabenaberko.newsapilib.models.Article;
-import com.kwabenaberko.newsapilib.models.request.EverythingRequest;
 import com.kwabenaberko.newsapilib.models.request.TopHeadlinesRequest;
 import com.kwabenaberko.newsapilib.models.response.ArticleResponse;
 import com.poo.covidapp.R;
 import com.poo.covidapp.Util.Models.News;
+
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,15 +38,20 @@ public class NewsPresenter implements NewsContract.Presenter {
         newsApiClient = new NewsApiClient(context.getString(R.string.NEWS_API_KEY));
 
         newsApiClient.getTopHeadlines(
-                new TopHeadlinesRequest.Builder().q("covid").country("br").language("pt").build(),
+                new TopHeadlinesRequest.Builder()
+                        .q("covid")
+                        .country("br")
+                        .language("pt")
+                        .pageSize(25)
+                        .build(),
                 new NewsApiClient.ArticlesResponseCallback() {
                     @Override
                     public void onSuccess(ArticleResponse response) {
                         for (Article article : response.getArticles()) {
                             newsList.add(new News(
-                                    article.getTitle(),
+                                    StringUtils.substringBefore(article.getTitle(), " -"),
                                     article.getDescription(),
-                                    article.getSource().getName(),
+                                    "Em + " + article.getPublishedAt() + ", por: " + article.getSource().getName(),
                                     article.getUrl(),
                                     article.getUrlToImage()
                             ));

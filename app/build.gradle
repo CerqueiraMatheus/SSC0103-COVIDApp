@@ -64,4 +64,7 @@ dependencies {
 
     // MarkWon
     implementation 'io.noties.markwon:core:4.6.2'
+
+    // To use String Utils
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
 }
