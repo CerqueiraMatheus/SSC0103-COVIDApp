@@ -5,12 +5,14 @@ public class News {
     String body;
     String published;
     String url;
+    String imageUrl;
 
-    public News(String title, String body, String published, String url) {
+    public News(String title, String body, String published, String url, String imageUrl) {
         this.title = title;
         this.body = body;
         this.published = published;
         this.url = url;
+        this.imageUrl = imageUrl;
     }
 
     public String getTitle() {
@@ -28,4 +30,9 @@ public class News {
     public String getUrl() {
         return url;
     }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
 }

@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.poo.covidapp.Util.Models.News;
 import com.poo.covidapp.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -33,6 +35,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.CustomViewHold
         TextView body;
         TextView published;
         CardView cardView;
+        ImageView image;
 
         // Linking Views and OnClickListeners
         CustomViewHolder(View itemView) {
@@ -41,6 +44,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.CustomViewHold
             title = mView.findViewById(R.id.row_noticia_titulo);
             body = mView.findViewById(R.id.row_noticia_corpo);
             published = mView.findViewById(R.id.row_noticia_publicadopor);
+            image = mView.findViewById(R.id.row_noticia_img);
             cardView = mView.findViewById(R.id.row_noticia_card);
             itemView.setOnClickListener(this);
             cardView.setOnClickListener(this);
@@ -67,6 +71,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.CustomViewHold
         holder.title.setText(newsList.get(position).getTitle());
         holder.body.setText(newsList.get(position).getBody());
         holder.published.setText(newsList.get(position).getPublished());
+        Picasso.get().load(newsList.get(position).getImageUrl()).into(holder.image);
     }
 
     @Override
