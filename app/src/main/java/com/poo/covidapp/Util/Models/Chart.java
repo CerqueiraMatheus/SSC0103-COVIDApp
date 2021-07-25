@@ -1,11 +1,9 @@
 package com.poo.covidapp.Util.Models;
 
-import androidx.annotation.NonNull;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
+import java.util.TreeMap;
 
 public class Chart {
     @SerializedName("results")
@@ -14,18 +12,57 @@ public class Chart {
     private Types type;
 
 
+    /* Static Methods */
+
+    static public String getTitle(Types type) {
+        String title = "";
+
+        switch(type) {
+            case CASES:
+                title =  "Número de Casos";
+                break;
+            case CASES_PER_100K:
+                title =  "Número de Casos por 100.000";
+                break;
+            case DEATHS:
+                title = "Número de Mortes";
+                break;
+        }
+
+        return title;
+    }
+
+    static public String getDescription(Types type) {
+        String description = "";
+
+        switch(type) {
+            case CASES:
+                description =  "Número de casos de Covid-19 confirmados agrupados por estado.";
+                break;
+            case CASES_PER_100K:
+                description =  "Número de casos de Covid-19 confirmados por 100.000 habitantes agrupados por estado.";
+                break;
+            case DEATHS:
+                description = "Número de mortes causadas pelo Covid-19 agrupados por estado.";
+                break;
+        }
+
+        return description;
+    }
+
+
     /* Getters and Setters */
 
     public void setType(Types type) {
         this.type = type;
     }
 
-    public State[] getStates() {
-        return states;
+    public Types getType() {
+        return type;
     }
 
-    public ArrayList<Float> getValues() {
-        ArrayList<Float> values = new ArrayList<>();
+    public TreeMap<String, Float> getEntries() {
+        TreeMap<String, Float> entries = new TreeMap<>();
 
         for (State state : states) {
             float value = 0;
@@ -41,20 +78,10 @@ public class Chart {
                     break;
             }
 
-            values.add(value);
+            entries.put(state.getInitials(), value);
         }
 
-        return values;
-    }
-
-    public ArrayList<String> getInitials() {
-        ArrayList<String> initials = new ArrayList<>();
-
-        for (State state : states) {
-            initials.add(state.initials);
-        }
-
-        return initials;
+        return entries;
     }
 
 
@@ -66,7 +93,7 @@ public class Chart {
         DEATHS
     }
 
-    public static class State implements Comparable<State> {
+    public static class State {
         @SerializedName("state")
         @Expose
         private String initials;
@@ -79,20 +106,6 @@ public class Chart {
         @SerializedName("deaths")
         @Expose
         private int deaths;
-
-
-        /* Utilities */
-
-        @Override
-        public String toString() {
-            return String.format("Initials: %s\nCases: %d\nCasesPer100k: %f\nDeaths: %d\n",
-                                 initials, cases, casesPer100k, deaths);
-        }
-
-        @Override
-        public int compareTo(State other) {
-            return initials.compareTo(other.initials);
-        }
 
 
         /* Getters and Setters */

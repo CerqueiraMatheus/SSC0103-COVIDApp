@@ -12,7 +12,7 @@ import com.poo.covidapp.R;
 import com.poo.covidapp.Util.Models.Chart;
 import com.poo.covidapp.databinding.FragmentChartsBinding;
 
-import java.util.ArrayList;
+import java.util.TreeMap;
 
 public class ChartsFragment extends Fragment implements ChartsContract.View {
     private ChartsPresenter presenter;
@@ -39,10 +39,10 @@ public class ChartsFragment extends Fragment implements ChartsContract.View {
     /*  */
 
     @Override
-    public void startChartsActivity(ArrayList<String> initials, ArrayList<Float> values) {
+    public void startChartsActivity(String title, TreeMap<String, Float> entries) {
         Intent intent = new Intent(getActivity(), ChartsActivity.class);
-        intent.putExtra("initials", initials);
-        intent.putExtra("values", values);
+        intent.putExtra("title", title);
+        intent.putExtra("entries", entries);
         startActivity(intent);
     }
 
@@ -56,18 +56,27 @@ public class ChartsFragment extends Fragment implements ChartsContract.View {
 
     @Override
     public void setButtons(String[] titles, String[] descriptions) {
-        binding.buttonCases.rowOptionTitle.setText(titles[0]);
-        binding.buttonCases.rowOptionDescription.setText(descriptions[0]);
-        binding.buttonCases.rowOption.setOnClickListener(this::onCasesClick);
+        binding.chartsButtonCases.rowOptionTitle.setText(
+                titles[Chart.Types.CASES.ordinal()]);
+        binding.chartsButtonCases.rowOptionDescription.setText(
+                descriptions[Chart.Types.CASES.ordinal()]);
+        binding.chartsButtonCases.rowOption.setOnClickListener(this::onCasesClick);
 
-        binding.buttonCasesPer100k.rowOptionTitle.setText(titles[1]);
-        binding.buttonCasesPer100k.rowOptionDescription.setText(descriptions[1]);
-        binding.buttonCasesPer100k.rowOption.setOnClickListener(this::onCasesPer100kClick);
+        binding.chartsButtonCasesPer100k.rowOptionTitle.setText(
+                titles[Chart.Types.CASES_PER_100K.ordinal()]);
+        binding.chartsButtonCasesPer100k.rowOptionDescription.setText(
+                descriptions[Chart.Types.CASES_PER_100K.ordinal()]);
+        binding.chartsButtonCasesPer100k.rowOption.setOnClickListener(this::onCasesPer100kClick);
 
-        binding.buttonDeaths.rowOptionTitle.setText(titles[2]);
-        binding.buttonDeaths.rowOptionDescription.setText(descriptions[2]);
-        binding.buttonDeaths.rowOption.setOnClickListener(this::onDeathsClick);
+        binding.chartsButtonDeaths.rowOptionTitle.setText(
+                titles[Chart.Types.DEATHS.ordinal()]);
+        binding.chartsButtonDeaths.rowOptionDescription.setText(
+                descriptions[Chart.Types.DEATHS.ordinal()]);
+        binding.chartsButtonDeaths.rowOption.setOnClickListener(this::onDeathsClick);
     }
+
+
+    /* Buttons */
 
     @Override
     public void onCasesClick(View view) {

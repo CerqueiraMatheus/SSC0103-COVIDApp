@@ -11,7 +11,6 @@ import com.google.gson.GsonBuilder;
 import com.poo.covidapp.R;
 import com.poo.covidapp.Util.Models.Chart;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +18,7 @@ public class ChartsPresenter implements ChartsContract.Presenter {
     private final ChartsContract.View view;
     private final Context context;
     private final Gson gson;
+
 
     /* Create */
 
@@ -34,35 +34,45 @@ public class ChartsPresenter implements ChartsContract.Presenter {
         String[] titles = new String[3];
         String[] descriptions = new String[3];
 
-        titles[0] = "Número de Casos";
-        descriptions[0] = "Número de casos de Covid-19 confirmados agrupados por estado";
+        // Cases
+        titles[Chart.Types.CASES.ordinal()] = Chart.getTitle(Chart.Types.CASES);
+        descriptions[Chart.Types.CASES.ordinal()] = Chart.getDescription(
+                Chart.Types.CASES);
 
-        titles[1] = "Número de Casos por 100.000";
-        descriptions[1] = "Número de casos de Covid-19 confirmados por 100.000 habitantes agrupados por estado";
+        // Cases Per 100k
+        titles[Chart.Types.CASES_PER_100K.ordinal()] = Chart.getTitle(Chart.Types.CASES_PER_100K);
+        descriptions[Chart.Types.CASES_PER_100K.ordinal()] = Chart.getDescription(
+                Chart.Types.CASES_PER_100K);
 
-        titles[2] = "Número de Mortes";
-        descriptions[2] = "Número de mortes causadas pelo Covid-19 agrupados por estado";
+        // Deaths
+        titles[Chart.Types.DEATHS.ordinal()] = Chart.getTitle(Chart.Types.DEATHS);
+        descriptions[Chart.Types.DEATHS.ordinal()] = Chart.getDescription(
+                Chart.Types.DEATHS);
 
         view.setButtons(titles, descriptions);
     }
 
 
-    /*  */
+    /* Request */
 
     @Override
     public void requestChart(Chart.Types type) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = "https://api.brasil.io/v1/dataset/covid19/caso/data?is_last=True&place_type=state";
 
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
-            Chart chart = gson.fromJson(response.toString(), Chart.class);
-            chart.setType(type);
-            Arrays.sort(chart.getStates());
-            view.startChartsActivity(chart.getInitials(), chart.getValues());
-        }, error -> {
-            System.out.println("Error");
-        }) {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+            // Handle response
+            response -> {
+                Chart chart = gson.fromJson(response.toString(), Chart.class);
+                chart.setType(type);
+                view.startChartsActivity(Chart.getTitle(type), chart.getEntries());
+            },
+
+            // Handle error
+            error -> System.out.println("Erro na request do gráfico!")
+        ) {
             @Override
+            // Setting custom header
             public Map<String, String> getHeaders() {
                 Map<String, String> header = new HashMap<>();
                 header.put("User-Agent", context.getString(R.string.username));

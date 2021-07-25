@@ -10,15 +10,15 @@
     tools:context=".Charts.ChartsFragment">
 
     <include
-        android:id="@+id/buttonCases"
+        android:id="@+id/charts_button_cases"
         layout="@layout/row_option" />
 
     <include
-        android:id="@+id/buttonCasesPer100k"
+        android:id="@+id/charts_button_cases_per_100k"
         layout="@layout/row_option" />
 
     <include
-        android:id="@+id/buttonDeaths"
+        android:id="@+id/charts_button_deaths"
         layout="@layout/row_option" />
 
 </LinearLayout>
