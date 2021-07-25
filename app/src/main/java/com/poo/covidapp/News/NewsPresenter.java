@@ -54,7 +54,7 @@ public class NewsPresenter implements NewsContract.Presenter {
                 new NewsApiClient.ArticlesResponseCallback() {
                     @Override
                     public void onSuccess(ArticleResponse response) {
-                        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("'As' HH:mm 'do dia' dd/MM/yyyy");
+                        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM', às' HH:mm");
                         LocalDateTime date;
 
                         for (Article article : response.getArticles()) {
@@ -64,7 +64,7 @@ public class NewsPresenter implements NewsContract.Presenter {
                             newsList.add(new News(
                                     StringUtils.substringBefore(article.getTitle(), " -"),
                                     article.getDescription(),
-                                    date.format(fmt) + ", por: " + article.getSource().getName(),
+                                    date.format(fmt) + " (por: " + article.getSource().getName() + ")",
                                     article.getUrl(),
                                     article.getUrlToImage()
                             ));
