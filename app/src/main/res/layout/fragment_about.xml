@@ -8,16 +8,29 @@
     android:orientation="vertical"
     tools:context=".Charts.ChartsFragment">
 
-    <include
-        android:id="@+id/about_dictionary"
-        layout="@layout/row_option" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <include
-        android:id="@+id/about_project"
-        layout="@layout/row_option" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <include
-        android:id="@+id/about_authors"
-        layout="@layout/row_option" />
+            <include
+                android:id="@+id/about_dictionary"
+                layout="@layout/row_option" />
+
+            <include
+                android:id="@+id/about_project"
+                layout="@layout/row_option" />
+
+            <include
+                android:id="@+id/about_authors"
+                layout="@layout/row_option" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
