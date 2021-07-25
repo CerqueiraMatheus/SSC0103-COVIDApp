@@ -35,6 +35,9 @@ Texto.
 
 ## Autores
 [Gustavo Henrique Brunelli](https://github.com/GBrunelli)
+
 [João Guilherme Jarochinski Marinho](https://github.com/jj-marinho)
+
 [Matheus Henrique de Cerqueira Pinto](https://github.com/CerqueiraMatheus)
+
 [Pedro Lucas de Moliner de Castro](https://github.com/pedrolmcastro)
