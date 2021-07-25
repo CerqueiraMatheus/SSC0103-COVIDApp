@@ -106,6 +106,10 @@ public class EstimationFragment extends Fragment implements EstimationContract.V
         btnav.setVisibility(View.VISIBLE);
         hideKeyboard();
 
+        // Clear focuses
+        binding.estimationAge.clearFocus();
+        binding.estimationState.clearFocus();
+
         // Check if age is valid
         String age = Objects.requireNonNull(binding.estimationAge.getText()).toString();
         if (age.equals("") || Integer.parseInt(age) > 150) {

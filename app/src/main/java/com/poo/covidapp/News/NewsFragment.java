@@ -1,5 +1,6 @@
 package com.poo.covidapp.News;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -30,8 +31,8 @@ public class NewsFragment extends Fragment implements NewsContract.View {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void onResume() {
+        super.onResume();
         new NewsPresenter(this, requireContext());
         presenter.start();
     }
@@ -48,7 +49,7 @@ public class NewsFragment extends Fragment implements NewsContract.View {
 
     @Override
     public void setAdapter(NewsAdapter adapter) {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(requireContext());
         binding.listaNoticia.setLayoutManager(layoutManager);
         binding.listaNoticia.setAdapter(adapter);
     }
