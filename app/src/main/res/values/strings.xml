@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">covidapp</string>
+    <string name="app_name">COVIDApp</string>
 
     <string name="noticias_title">Notícias</string>
     <string name="dados_title">Últimos dados</string>
@@ -9,5 +9,12 @@
     <string name="bottom_dados">Dados</string>
     <string name="bottom_estimativa">Estimativa</string>
     <string name="bottom_sobre">Sobre</string>
+    <string name="dict_base_text">\"A imaginação muitas vezes nos leva a mundos que nunca sequer existiram. Mas sem ela não vamos a lugar algum.\"\n\n- Carl Sagan</string>
+    <string name="estimation_age_hint">Digite sua idade</string>
+    <string name="estimation_state_hint">Selecione seu estado</string>
+    <string name="estimation_checkbox_hint">Faço parte do PNI (comorbidades)</string>
+    <string name="estimation_submit_text">Confirmar</string>
+    <string name="dict_search_hint">Pesquise um termo</string>
+    <string name="dict_base_title">Ao selecionar um termo, ele aparecerá aqui!</string>
 
 </resources>

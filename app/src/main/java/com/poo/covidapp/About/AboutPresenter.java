@@ -14,13 +14,13 @@ public class AboutPresenter implements AboutContract.Presenter {
         String[] descriptions = new String[3];
 
         titles[0] = "As expressões da pandemia";
-        descriptions[0] = "Descrição";
+        descriptions[0] = "Acesse um glossário para pesquisar alguns dos termos mais usados durante a pandemia";
 
         titles[1] = "O projeto";
-        descriptions[1] = "Descrição";
+        descriptions[1] = "Saiba mais sobre a criação e o desenvolvimento do projeto";
 
         titles[2] = "Os autores";
-        descriptions[2] = "Descrição";
+        descriptions[2] = "Descubra quem está por trás dos panos :)";
 
         view.populateView(titles, descriptions);
     }

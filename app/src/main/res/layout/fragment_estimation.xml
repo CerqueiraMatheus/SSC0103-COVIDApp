@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:hint="Digite sua idade"
+        android:hint="@string/estimation_age_hint"
         app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:hint="Selecione seu estado"
+        android:hint="@string/estimation_state_hint"
         app:errorEnabled="true">
 
         <AutoCompleteTextView
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:checked="false"
-        android:text="Faço parte do PNI (comorbidades)" />
+        android:text="@string/estimation_checkbox_hint" />
 
     <Button
         android:id="@+id/estimation_submit"
@@ -58,6 +58,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="20dp"
-        android:text="Confirmar" />
+        android:text="@string/estimation_submit_text" />
 
 </LinearLayout>

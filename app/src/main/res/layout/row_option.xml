@@ -44,7 +44,6 @@
                     android:layout_marginEnd="4dp"
                     android:layout_marginBottom="12dp"
                     android:gravity="center_horizontal"
-                    android:text="Title"
                     android:textColor="@color/primaryDarkColor"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -59,7 +58,6 @@
                     android:layout_marginEnd="4dp"
                     android:layout_marginBottom="12dp"
                     android:gravity="center_horizontal"
-                    android:text="Description"
                     android:textSize="12sp" />
 
             </RelativeLayout>

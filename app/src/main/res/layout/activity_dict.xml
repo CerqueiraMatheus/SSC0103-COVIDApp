@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:hint="Pesquise um termo"
+        android:hint="@string/dict_search_hint"
         app:endIconMode="none"
         app:errorEnabled="true">
 
@@ -30,6 +30,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/dict_title"
+        android:text="@string/dict_base_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -42,6 +43,7 @@
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/dict_body"
         android:layout_width="match_parent"
+        android:text="@string/dict_base_text"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:justificationMode="inter_word"
