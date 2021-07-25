@@ -1,5 +1,7 @@
 package com.poo.covidapp;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,5 +35,8 @@ public class MainActivity extends AppCompatActivity {
         NavController controller = navHostFragment.getNavController();
         NavigationUI.setupActionBarWithNavController(this, controller, conf);
         NavigationUI.setupWithNavController(binding.bottomNavigation, controller);
+
+        // Fix orientation
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 }
