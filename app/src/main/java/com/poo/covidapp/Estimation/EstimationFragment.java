@@ -13,7 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.poo.covidapp.MainActivity;
 import com.poo.covidapp.R;
 import com.poo.covidapp.databinding.FragmentEstimationBinding;
 
@@ -24,6 +26,7 @@ public class EstimationFragment extends Fragment implements EstimationContract.V
 
     private FragmentEstimationBinding binding;
     private EstimationPresenter presenter;
+    private BottomNavigationView btnav;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -37,6 +40,7 @@ public class EstimationFragment extends Fragment implements EstimationContract.V
         super.onViewCreated(view, savedInstanceState);
         new EstimationPresenter(this, getContext());
         presenter.start();
+        btnav = ((MainActivity) requireActivity()).findViewById(R.id.bottom_navigation);
     }
 
     @Override
@@ -67,19 +71,41 @@ public class EstimationFragment extends Fragment implements EstimationContract.V
                 new ArrayAdapter<>(requireContext(), R.layout.row_state, statesNames)
         );
 
-        // Avoid soft keyboard appearing when focusing the dropdown menu
-        binding.estimationState.setOnFocusChangeListener((v, hasFocus) -> {
-            InputMethodManager imm = (InputMethodManager)
-                    requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(requireView().getWindowToken(), 0);
+        // Hide the bottom nav and keyboard on focus
+        binding.estimationAge.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                btnav.setVisibility(View.GONE);
+            } else {
+                btnav.setVisibility(View.VISIBLE);
+                hideKeyboard();
+            }
         });
+
+        // Show bottom nav again
+        binding.estimationAge.setOnEditorActionListener((v, actionId, event) -> {
+            btnav.setVisibility(View.VISIBLE);
+            return false;
+        });
+
+        // Avoid soft keyboard appearing when focusing the dropdown menu
+        binding.estimationState.setOnFocusChangeListener((v, hasFocus) -> hideKeyboard());
 
         // Link the button onClick with custom method
         binding.estimationSubmit.setOnClickListener(this::onSubmitClick);
     }
 
+    private void hideKeyboard() {
+        InputMethodManager imm = (InputMethodManager)
+                requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(requireView().getWindowToken(), 0);
+    }
+
     @Override
     public void onSubmitClick(View view) {
+        // Restore visibilities
+        btnav.setVisibility(View.VISIBLE);
+        hideKeyboard();
+
         // Check if age is valid
         String age = Objects.requireNonNull(binding.estimationAge.getText()).toString();
         if (age.equals("") || Integer.parseInt(age) > 150) {
