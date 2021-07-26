@@ -22,7 +22,7 @@ Pensando nisso, concebeu-se a ideia de construção de um sistema capaz de agreg
 ### Últimas notícias
 
 <p float="left" align="center">
-  <img src="/screenshot/news/1.png" width="150" />
+  <img src="/screenshot/news/1.png" width="250" />
 </p>
 
 Texto.
@@ -30,13 +30,13 @@ Texto.
 ### Últimos dados
 
 <p align="center">
-  <img src="/screenshot/charts/2.png" height="150"/>
+  <img src="/screenshot/charts/2.png" height="250"/>
 </p>
 <p align="center">
-  <img src="/screenshot/charts/3.png" height="150"/>
+  <img src="/screenshot/charts/3.png" height="250"/>
 </p>
 <p align="center">
-  <img src="/screenshot/charts/4.png" height="150"/>
+  <img src="/screenshot/charts/4.png" height="250"/>
 </p>
 
 Texto.
@@ -44,9 +44,9 @@ Texto.
 ### Estimador de vacinação
 
 <p float="left" align="center">
-  <img src="/screenshot/estimation/1.png" width="150" />
-  <img src="/screenshot/estimation/2.png" width="150" />
-  <img src="/screenshot/estimation/3.png" width="150" />
+  <img src="/screenshot/estimation/1.png" width="250" />
+  <img src="/screenshot/estimation/2.png" width="250" />
+  <img src="/screenshot/estimation/3.png" width="250" />
 </p>
 
 Texto.
@@ -54,9 +54,9 @@ Texto.
 ### Dicionário de termos
 
 <p float="left" align="center">
-  <img src="/screenshot/about/1.png" width="150" />
-  <img src="/screenshot/about/2.png" width="150" />
-  <img src="/screenshot/about/3.png" width="150" />
+  <img src="/screenshot/about/1.png" width="250" />
+  <img src="/screenshot/about/2.png" width="250" />
+  <img src="/screenshot/about/3.png" width="250" />
 </p>
 
 Texto.
