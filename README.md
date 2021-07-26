@@ -2,7 +2,7 @@
 
 > O COVIDApp é um aplicativo Android desenvolvido como projeto final da disciplina de Programação Orientada a Objetos ([SSC0103](https://uspdigital.usp.br/jupiterweb/obterDisciplina?sgldis=SSC0103&codcur=55041&codhab=0)), ministrada pelo professor Márcio Eduardo Delamaro no ICMC/USP durante o primeiro semestre de 2021.
 
-[Clique aqui para baixar a última versão compilada.](google.com)
+[Clique aqui para baixar a última versão compilada.](/app/release/app-release.apk)
 
 ## Motivação
 
