@@ -28,6 +28,8 @@ public class DictActivity extends AppCompatActivity implements DictContract.View
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Set view and binding
         setContentView(R.layout.activity_dict);
         binding = ActivityDictBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
@@ -37,8 +39,12 @@ public class DictActivity extends AppCompatActivity implements DictContract.View
     @Override
     protected void onResume() {
         super.onResume();
+
+        // Set and start presenter
         new DictPresenter(this, getApplicationContext());
         presenter.start();
+
+        // Change action bar and title
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Expressões da pandemia");
@@ -56,11 +62,18 @@ public class DictActivity extends AppCompatActivity implements DictContract.View
                 new ArrayAdapter<>(getBaseContext(), R.layout.row_state, strings)
         );
 
+        // On item click dict search
         binding.dictSearch.setOnItemClickListener((parent, view, position, id) -> {
+
+            // Hide keyboard
             InputMethodManager imm = (InputMethodManager)
                     this.getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(binding.getRoot().getWindowToken(), 0);
+
+            // Call on selected word
             presenter.onSelectWord((String) ((TextView) view).getText());
+
+            // Reset interfaces
             binding.dictSearch.setText("");
             getWindow().getDecorView().clearFocus();
         });

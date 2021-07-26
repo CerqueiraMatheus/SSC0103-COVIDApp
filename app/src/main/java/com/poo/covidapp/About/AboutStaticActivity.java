@@ -25,28 +25,36 @@ public class AboutStaticActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Set view and binding
         binding = ActivityAboutStaticBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+        // Get type
         type = getIntent().getExtras().getInt("type");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        // Change action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        // obtain an instance of Markwon
+        // Build instance of MarkWon
         final Markwon markwon = Markwon.builder(getApplicationContext())
                 .usePlugin(SoftBreakAddsNewLinePlugin.create())
                 .build();
 
         switch (type) {
+            // Case first button
             case 0:
                 getSupportActionBar().setTitle("Sobre o projeto");
                 markwon.setMarkdown(binding.aboutStaticText, getTextFromFile(R.raw.about_project));
                 break;
+            // Case second button
             case 1:
                 getSupportActionBar().setTitle("Sobre os autores");
                 markwon.setMarkdown(binding.aboutStaticText, getTextFromFile(R.raw.about_authors));
@@ -55,10 +63,13 @@ public class AboutStaticActivity extends AppCompatActivity {
     }
 
     private String getTextFromFile(int id) {
+        // Get instance of reader
         BufferedReader bufferedReader = new BufferedReader(
                 new InputStreamReader(getResources().openRawResource(id)));
-        StringBuilder txt = new StringBuilder();
 
+
+        // Get file to string
+        StringBuilder txt = new StringBuilder();
         String line;
         try {
             while ((line = bufferedReader.readLine()) != null)
@@ -72,6 +83,7 @@ public class AboutStaticActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        // Fix back pressed
         if (item.getItemId() == android.R.id.home) onBackPressed();
         return super.onOptionsItemSelected(item);
     }

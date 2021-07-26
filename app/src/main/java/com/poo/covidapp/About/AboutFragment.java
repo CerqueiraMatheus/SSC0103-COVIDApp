@@ -29,20 +29,25 @@ public class AboutFragment extends Fragment implements AboutContract.View {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        // Set and start presenter
         new AboutPresenter(this);
         presenter.start();
     }
 
     @Override
     public void populateView(String[] titles, String[] descriptions) {
+        // Set button 1
         binding.aboutDictionary.rowOptionTitle.setText(titles[0]);
         binding.aboutDictionary.rowOptionDescription.setText(descriptions[0]);
         binding.aboutDictionary.rowOption.setOnClickListener(this::onDictClick);
 
+        // Set button 2
         binding.aboutProject.rowOptionTitle.setText(titles[1]);
         binding.aboutProject.rowOptionDescription.setText(descriptions[1]);
         binding.aboutProject.rowOption.setOnClickListener(this::onProjectClick);
 
+        // Set button 3
         binding.aboutAuthors.rowOptionTitle.setText(titles[2]);
         binding.aboutAuthors.rowOptionDescription.setText(descriptions[2]);
         binding.aboutAuthors.rowOption.setOnClickListener(this::onAuthorsClick);

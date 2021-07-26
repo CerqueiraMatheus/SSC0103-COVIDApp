@@ -19,13 +19,14 @@ public class ChartsPresenter implements ChartsContract.Presenter {
     private final Context context;
     private final Gson gson;
 
-
-    /* Create */
-
     public ChartsPresenter(ChartsContract.View view, Context context) {
         this.view = view;
         this.context = context;
+
+        // Set presenter
         view.setPresenter(this);
+
+        // Get instance of Gson
         gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
     }
 
@@ -34,17 +35,17 @@ public class ChartsPresenter implements ChartsContract.Presenter {
         String[] titles = new String[3];
         String[] descriptions = new String[3];
 
-        // Cases
+        // Set cases button
         titles[Chart.Types.CASES.ordinal()] = Chart.getTitle(Chart.Types.CASES);
         descriptions[Chart.Types.CASES.ordinal()] = Chart.getDescription(
                 Chart.Types.CASES);
 
-        // Cases Per 100k
+        // Set cases per 100k button
         titles[Chart.Types.CASES_PER_100K.ordinal()] = Chart.getTitle(Chart.Types.CASES_PER_100K);
         descriptions[Chart.Types.CASES_PER_100K.ordinal()] = Chart.getDescription(
                 Chart.Types.CASES_PER_100K);
 
-        // Deaths
+        // Set deaths button
         titles[Chart.Types.DEATHS.ordinal()] = Chart.getTitle(Chart.Types.DEATHS);
         descriptions[Chart.Types.DEATHS.ordinal()] = Chart.getDescription(
                 Chart.Types.DEATHS);
@@ -52,14 +53,13 @@ public class ChartsPresenter implements ChartsContract.Presenter {
         view.setButtons(titles, descriptions);
     }
 
-
-    /* Request */
-
     @Override
     public void requestChart(Chart.Types type) {
+        // Get instance of queue
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = "https://api.brasil.io/v1/dataset/covid19/caso/data?is_last=True&place_type=state";
 
+        // Make request
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
             // Handle response
             response -> {
@@ -80,6 +80,7 @@ public class ChartsPresenter implements ChartsContract.Presenter {
             }
         };
 
+        // Add request to queue
         queue.add(request);
     }
 }

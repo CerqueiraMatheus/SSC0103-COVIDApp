@@ -37,7 +37,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.CustomViewHold
         CardView cardView;
         ImageView image;
 
-        // Linking Views and OnClickListeners
+        // Link Views and OnClickListeners
         CustomViewHolder(View itemView) {
             super(itemView);
             mView = itemView;

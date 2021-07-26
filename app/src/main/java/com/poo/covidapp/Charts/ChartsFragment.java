@@ -18,9 +18,6 @@ public class ChartsFragment extends Fragment implements ChartsContract.View {
     private ChartsPresenter presenter;
     private FragmentChartsBinding binding;
 
-
-    /* Create */
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -32,11 +29,11 @@ public class ChartsFragment extends Fragment implements ChartsContract.View {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        // Set and start presenter
         new ChartsPresenter(this, getContext());
         presenter.start();
     }
-
-    /*  */
 
     @Override
     public void startChartsActivity(String title, TreeMap<String, Float> entries) {
@@ -46,9 +43,6 @@ public class ChartsFragment extends Fragment implements ChartsContract.View {
         startActivity(intent);
     }
 
-
-    /* Getters and Setters */
-
     @Override
     public void setPresenter(ChartsPresenter presenter) {
         this.presenter = presenter;
@@ -56,27 +50,27 @@ public class ChartsFragment extends Fragment implements ChartsContract.View {
 
     @Override
     public void setButtons(String[] titles, String[] descriptions) {
+        // Set button 1
         binding.chartsButtonCases.rowOptionTitle.setText(
                 titles[Chart.Types.CASES.ordinal()]);
         binding.chartsButtonCases.rowOptionDescription.setText(
                 descriptions[Chart.Types.CASES.ordinal()]);
         binding.chartsButtonCases.rowOption.setOnClickListener(this::onCasesClick);
 
+        // Set button 2
         binding.chartsButtonCasesPer100k.rowOptionTitle.setText(
                 titles[Chart.Types.CASES_PER_100K.ordinal()]);
         binding.chartsButtonCasesPer100k.rowOptionDescription.setText(
                 descriptions[Chart.Types.CASES_PER_100K.ordinal()]);
         binding.chartsButtonCasesPer100k.rowOption.setOnClickListener(this::onCasesPer100kClick);
 
+        // Set button 3
         binding.chartsButtonDeaths.rowOptionTitle.setText(
                 titles[Chart.Types.DEATHS.ordinal()]);
         binding.chartsButtonDeaths.rowOptionDescription.setText(
                 descriptions[Chart.Types.DEATHS.ordinal()]);
         binding.chartsButtonDeaths.rowOption.setOnClickListener(this::onDeathsClick);
     }
-
-
-    /* Buttons */
 
     @Override
     public void onCasesClick(View view) {
@@ -92,9 +86,6 @@ public class ChartsFragment extends Fragment implements ChartsContract.View {
     public void onDeathsClick(View view) {
         presenter.requestChart(Chart.Types.DEATHS);
     }
-
-
-    /* Destroy */
 
     @Override
     public void onDestroyView() {

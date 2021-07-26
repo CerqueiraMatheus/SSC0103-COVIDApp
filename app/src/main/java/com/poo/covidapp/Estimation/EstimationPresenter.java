@@ -105,6 +105,8 @@ public class EstimationPresenter implements EstimationContract.Presenter {
                 return body;
             }
         };
+
+        // Add request to queue
         queue.add(request);
     }
 }

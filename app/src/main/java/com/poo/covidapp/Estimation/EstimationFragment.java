@@ -15,7 +15,6 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.poo.covidapp.MainActivity;
 import com.poo.covidapp.R;
 import com.poo.covidapp.databinding.FragmentEstimationBinding;
 
@@ -26,7 +25,7 @@ public class EstimationFragment extends Fragment implements EstimationContract.V
 
     private FragmentEstimationBinding binding;
     private EstimationPresenter presenter;
-    private BottomNavigationView btnav;
+    private BottomNavigationView bottomNav;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -38,9 +37,13 @@ public class EstimationFragment extends Fragment implements EstimationContract.V
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        // Set and start presenter
         new EstimationPresenter(this, getContext());
         presenter.start();
-        btnav = ((MainActivity) requireActivity()).findViewById(R.id.bottom_navigation);
+
+        // Set bottom nav
+        bottomNav = requireActivity().findViewById(R.id.bottom_navigation);
     }
 
     @Override
@@ -74,16 +77,16 @@ public class EstimationFragment extends Fragment implements EstimationContract.V
         // Hide the bottom nav and keyboard on focus
         binding.estimationAge.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
-                btnav.setVisibility(View.GONE);
+                bottomNav.setVisibility(View.GONE);
             } else {
-                btnav.setVisibility(View.VISIBLE);
+                bottomNav.setVisibility(View.VISIBLE);
                 hideKeyboard();
             }
         });
 
         // Show bottom nav again
         binding.estimationAge.setOnEditorActionListener((v, actionId, event) -> {
-            btnav.setVisibility(View.VISIBLE);
+            bottomNav.setVisibility(View.VISIBLE);
             return false;
         });
 
@@ -94,6 +97,7 @@ public class EstimationFragment extends Fragment implements EstimationContract.V
         binding.estimationSubmit.setOnClickListener(this::onSubmitClick);
     }
 
+    // Hide soft keyboard
     private void hideKeyboard() {
         InputMethodManager imm = (InputMethodManager)
                 requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -103,7 +107,7 @@ public class EstimationFragment extends Fragment implements EstimationContract.V
     @Override
     public void onSubmitClick(View view) {
         // Restore visibilities
-        btnav.setVisibility(View.VISIBLE);
+        bottomNav.setVisibility(View.VISIBLE);
         hideKeyboard();
 
         // Clear focuses

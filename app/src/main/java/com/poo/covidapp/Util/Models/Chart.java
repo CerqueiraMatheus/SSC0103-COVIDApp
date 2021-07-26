@@ -10,18 +10,15 @@ public class Chart {
     @Expose
     private State[] states;
 
-
-    /* Getters and Setters */
-
     static public String getTitle(Types type) {
         String title = "";
 
-        switch(type) {
+        switch (type) {
             case CASES:
-                title =  "Número de Casos";
+                title = "Número de Casos";
                 break;
             case CASES_PER_100K:
-                title =  "Número de Casos por 100.000";
+                title = "Número de Casos por 100.000";
                 break;
             case DEATHS:
                 title = "Número de Mortes";
@@ -34,12 +31,12 @@ public class Chart {
     static public String getDescription(Types type) {
         String description = "";
 
-        switch(type) {
+        switch (type) {
             case CASES:
-                description =  "Número de casos de Covid-19 confirmados agrupados por estado.";
+                description = "Número de casos de Covid-19 confirmados agrupados por estado.";
                 break;
             case CASES_PER_100K:
-                description =  "Número de casos de Covid-19 confirmados por 100.000 habitantes agrupados por estado.";
+                description = "Número de casos de Covid-19 confirmados por 100.000 habitantes agrupados por estado.";
                 break;
             case DEATHS:
                 description = "Número de mortes causadas pelo Covid-19 agrupados por estado.";
@@ -49,7 +46,6 @@ public class Chart {
         return description;
     }
 
-
     public TreeMap<String, Float> getEntries(Types type) {
         TreeMap<String, Float> entries = new TreeMap<>();
 
@@ -57,13 +53,13 @@ public class Chart {
             float value = 0;
             switch (type) {
                 case CASES:
-                    value = (float)state.getCases();
+                    value = (float) state.getCases();
                     break;
                 case CASES_PER_100K:
-                    value = (float)state.getCasesPer100k();
+                    value = (float) state.getCasesPer100k();
                     break;
                 case DEATHS:
-                    value = (float)state.getDeaths();
+                    value = (float) state.getDeaths();
                     break;
             }
 
@@ -72,7 +68,6 @@ public class Chart {
 
         return entries;
     }
-
 
     /* Inner Classes */
 
@@ -95,9 +90,6 @@ public class Chart {
         @SerializedName("deaths")
         @Expose
         private int deaths;
-
-
-        /* Getters and Setters */
 
         public String getInitials() {
             return initials;
