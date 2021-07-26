@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="12dp"
+    android:padding="6dp"
     tools:context=".About.AboutStaticActivity">
 
     <TextView
         android:id="@+id/about_static_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:justificationMode="inter_word"
+        android:layout_margin="6dp"
         android:textColor="@color/primaryTextColor"
         android:textSize="14sp" />
 </LinearLayout>

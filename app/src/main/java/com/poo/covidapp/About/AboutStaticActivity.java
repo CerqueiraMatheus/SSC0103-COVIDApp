@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import io.noties.markwon.Markwon;
+import io.noties.markwon.SoftBreakAddsNewLinePlugin;
 
 public class AboutStaticActivity extends AppCompatActivity {
 
@@ -37,7 +38,9 @@ public class AboutStaticActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         // obtain an instance of Markwon
-        final Markwon markwon = Markwon.create(getApplicationContext());
+        final Markwon markwon = Markwon.builder(getApplicationContext())
+                .usePlugin(SoftBreakAddsNewLinePlugin.create())
+                .build();
 
         switch (type) {
             case 0:
