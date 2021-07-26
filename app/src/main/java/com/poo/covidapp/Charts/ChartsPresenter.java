@@ -64,8 +64,7 @@ public class ChartsPresenter implements ChartsContract.Presenter {
             // Handle response
             response -> {
                 Chart chart = gson.fromJson(response.toString(), Chart.class);
-                chart.setType(type);
-                view.startChartsActivity(Chart.getTitle(type), chart.getEntries());
+                view.startChartsActivity(Chart.getTitle(type), chart.getEntries(type));
             },
 
             // Handle error

@@ -9,10 +9,9 @@ public class Chart {
     @SerializedName("results")
     @Expose
     private State[] states;
-    private Types type;
 
 
-    /* Static Methods */
+    /* Getters and Setters */
 
     static public String getTitle(Types type) {
         String title = "";
@@ -51,17 +50,7 @@ public class Chart {
     }
 
 
-    /* Getters and Setters */
-
-    public void setType(Types type) {
-        this.type = type;
-    }
-
-    public Types getType() {
-        return type;
-    }
-
-    public TreeMap<String, Float> getEntries() {
+    public TreeMap<String, Float> getEntries(Types type) {
         TreeMap<String, Float> entries = new TreeMap<>();
 
         for (State state : states) {
