@@ -1,7 +1,5 @@
 package com.poo.covidapp.About;
 
-import android.view.View;
-
 import com.poo.covidapp.Util.Base.BasePresenter;
 import com.poo.covidapp.Util.Base.BaseView;
 

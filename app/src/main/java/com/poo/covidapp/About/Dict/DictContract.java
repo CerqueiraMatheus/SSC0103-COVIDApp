@@ -1,6 +1,5 @@
 package com.poo.covidapp.About.Dict;
 
-import com.poo.covidapp.About.AboutPresenter;
 import com.poo.covidapp.Util.Base.BasePresenter;
 import com.poo.covidapp.Util.Base.BaseView;
 

@@ -3,7 +3,6 @@ package com.poo.covidapp.News;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.text.format.DateFormat;
 
 import com.kwabenaberko.newsapilib.NewsApiClient;
 import com.kwabenaberko.newsapilib.models.Article;
@@ -14,14 +13,10 @@ import com.poo.covidapp.Util.Models.News;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class NewsPresenter implements NewsContract.Presenter {
 

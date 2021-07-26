@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-import com.poo.covidapp.R;
 import com.poo.covidapp.Util.Models.Chart;
 import com.poo.covidapp.databinding.FragmentChartsBinding;
 

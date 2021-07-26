@@ -3,7 +3,6 @@ package com.poo.covidapp.About.Dict;
 import android.content.Context;
 import android.content.res.Resources;
 
-import com.poo.covidapp.About.AboutContract;
 import com.poo.covidapp.R;
 
 import java.util.ArrayList;
